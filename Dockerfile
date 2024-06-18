@@ -1,5 +1,5 @@
 # Use the official Python image from the Docker Hub
-FROM python:3.9-slim
+FROM python:3.10-slim
 
 # Install dependencies
 RUN apt-get update && apt-get install -y wget gnupg && \
