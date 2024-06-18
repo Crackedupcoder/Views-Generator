@@ -1,16 +1,12 @@
 services:
   - type: web
     name: views-generator
-    env: python
+    env: docker
     region: oregon
     plan: free
-    buildCommand: |
-      pip install -r requirements.txt
-      wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-      sudo apt-get update
-      sudo apt-get install -y ./google-chrome-stable_current_amd64.deb
-      sudo apt-get -f install -y
-    startCommand: "gunicorn views_generator.wsgi:application --preload --bind 0.0.0.0:8000"
+    dockerfilePath: ./Dockerfile
+    buildCommand: ""
+    startCommand: ""
     envVars:
       - key: DJANGO_SECRET_KEY
         sync: false
